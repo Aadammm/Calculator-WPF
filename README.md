@@ -1,15 +1,16 @@
-#Calculator App 🧮
-Supports basic arithmetic operations, percentage calculations, and negative numbers.
+# Calculator App 🧮
 
-Features
-✅ Addition, subtraction, multiplication, division
-✅ Percentage calculations
-✅ Negative number toggle
-✅ Clear (AC) button
+A simple WPF calculator built with C#. Supports basic arithmetic operations, percentage calculations, and negative numbers.
 
-Usage
-Click number buttons to enter values.
-Use operation buttons (+, -, ×, ÷) to perform calculations.
-Press = to get the result.
-AC clears the display.
-% calculates percentages.
+## Features
+- ✅ Addition, subtraction, multiplication, division  
+- ✅ Percentage calculations  
+- ✅ Negative number toggle  
+- ✅ Clear (AC) button  
+
+## Usage
+1. Click number buttons to enter values.  
+2. Use operation buttons (+, -, ×, ÷) to perform calculations.  
+3. Press `=` to get the result.  
+4. `AC` clears the display.  
+5. `%` calculates percentages.  
