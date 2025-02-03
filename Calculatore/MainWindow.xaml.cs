@@ -27,9 +27,13 @@ namespace Calculatore
 
         private void EqualButton_Click(object sender, RoutedEventArgs e)
         {
+            if (historyLabel.Content.ToString().Contains("="))
+            {
+                return;
+            }
             if (double.TryParse(resultLabel.Content.ToString(), out double newNumber))
             {
-                historyLabel.Content += newNumber.ToString()+"=";
+                historyLabel.Content += newNumber.ToString() + "=";
                 switch (selectedOperator)
                 {
                     case SelectedOperator.Addition:
@@ -52,14 +56,9 @@ namespace Calculatore
         private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
             int selectedValue = int.Parse((sender as Button).Content.ToString());
-            if (resultLabel.Content.ToString() == "0")
-            {
-                resultLabel.Content = $"{selectedValue}";
-            }
-            else
-            {
-                resultLabel.Content = $"{resultLabel.Content}{selectedValue}";
-            }
+            resultLabel.Content = resultLabel.Content.ToString() == "0" ?
+               $"{selectedValue}" :
+               $"{resultLabel.Content}{selectedValue}";
         }
 
         private void AcButton_Click(object sender, RoutedEventArgs e)
@@ -87,6 +86,7 @@ namespace Calculatore
             {
                 resultLabel.Content = "0";
             }
+
             if (sender == multiplicationButton)
             {
                 historyLabel.Content = lastNumber + (sender as Button).Content.ToString();
@@ -128,10 +128,12 @@ namespace Calculatore
             Division,
             Multiplication
         }
-
         private void PointButton_Click(object sender, RoutedEventArgs e)
         {
-            resultLabel.Content += ".";
+            if (!resultLabel.Content.ToString().Contains("."))
+            {
+                resultLabel.Content += ".";
+            }
         }
 
         public class SimplyMath
@@ -144,7 +146,7 @@ namespace Calculatore
                 if (n2 == 0)
                 {
                     MessageBox.Show("Division by 0 is not supported", "Wrong Operation", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return 0;
+                    return double.NaN;
                 }
                 return n1 / n2;
             }
