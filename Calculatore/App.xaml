@@ -5,17 +5,20 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <Style TargetType="Button">
+        <SolidColorBrush x:Key="operativeButton" Color="DarkGray"/>
+        <SolidColorBrush x:Key="foregroundColor" Color="White" />
+
+        <Style TargetType="Button" x:Key="ButtonStyle">
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#444444"/>
             <Setter Property="Margin" Value="1"/>
             <Setter Property="FontSize" Value="20"/>
-
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border"
                                 CornerRadius="10"
-                                Background="#444444"
+                                Background="{TemplateBinding Background}" 
                                 Padding="10">
                             <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
@@ -24,14 +27,18 @@
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="border" Property="Background" Value="Gray"/>
                             </Trigger>
-                            <!--<Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="gray"/>
-                            </Trigger>-->
                         </ControlTemplate.Triggers>
+                        
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
+        <Style TargetType="Button" x:Key="operativeButtonStyle" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="Background" Value="#4444"/>
+        </Style>
+        <Style TargetType="Button" x:Key="equalButtonStyle" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="Background" Value="Orange"/>
+        </Style>
     </Application.Resources>
 </Application>
