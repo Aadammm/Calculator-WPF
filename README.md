@@ -14,3 +14,4 @@ A simple WPF calculator built with C#. Supports basic arithmetic operations, per
 3. Press `=` to get the result.  
 4. `AC` clears the display.  
 5. `%` calculates percentages.  
+![image](https://github.com/user-attachments/assets/faa6a8ae-71fc-43f4-a398-05d549810139)
